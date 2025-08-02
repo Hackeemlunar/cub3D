@@ -12,6 +12,9 @@
 
 #include "parser_utils.h"
 
+/**
+ * Counts the number of non-empty map rows starting from map_start.
+ */
 int	count_map_rows_p(t_list *map_start)
 {
 	t_list	*current;
@@ -31,6 +34,9 @@ int	count_map_rows_p(t_list *map_start)
 	return (row_count);
 }
 
+/**
+ * Allocates memory for the map board based on row count.
+ */
 bool	allocate_map_board(t_config *config, int row_count, t_arena *arena)
 {
 	config->map.rows = row_count;
@@ -40,6 +46,9 @@ bool	allocate_map_board(t_config *config, int row_count, t_arena *arena)
 	return (true);
 }
 
+/**
+ * Copies and validates a single map line into the board.
+ */
 bool	copy_map_line(t_config *config, char *line, int index, t_arena *arena)
 {
 	char	*trimmed;
@@ -58,6 +67,9 @@ bool	copy_map_line(t_config *config, char *line, int index, t_arena *arena)
 	return (true);
 }
 
+/**
+ * Populates the map board with data from linked list nodes.
+ */
 bool	populate_map_board(t_list *map_start, t_config *config, t_arena *arena)
 {
 	t_list	*current;

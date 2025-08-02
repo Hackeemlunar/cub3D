@@ -13,9 +13,16 @@ INC_DIR = includes
 # External libraries
 LIBFT_DIR = $(INC_DIR)/libft
 
-MLX_DIR = $(INC_DIR)/minilibx_opengl_20191021
-FRAMEWORK = -framework OpenGL -framework AppKit
-
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+    MLX_DIR = $(INC_DIR)/minilibx_opengl_20191021
+	FRAMEWORK = -framework OpenGL -framework AppKit
+else ifeq ($(UNAME_S),Linux)
+    MLX_DIR = $(INC_DIR)/minilibx-linux
+	FRAMEWORK = -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm -lz
+else
+    $(error Unsupported operating system: $(UNAME_S))
+endif
 
 # ========== Library Settings ==========
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
@@ -92,7 +99,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@echo "Building dependencies..."
 	@$(MAKE) -C $(LIBFT_DIR)
-	@$(MAKE) -C $(MLX_DIR)
+# 	@$(MAKE) -C $(MLX_DIR)
 	@echo "Linking $(NAME)..."
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT_LIB) $(MLX_LIB) $(FRAMEWORK) -o $@
 	@echo "✅ $(NAME) compiled successfully!"

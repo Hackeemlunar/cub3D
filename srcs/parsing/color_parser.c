@@ -12,6 +12,9 @@
 
 #include "parser_utils.h"
 
+/**
+ * Counts the number of RGB parts and validates if there are exactly 3.
+ */
 bool	count_rgb_parts(char **rgb_parts)
 {
 	int	i;
@@ -22,6 +25,9 @@ bool	count_rgb_parts(char **rgb_parts)
 	return (i == 3);
 }
 
+/**
+ * Frees memory allocated for RGB parts array.
+ */
 void	free_rgb_parts(char **rgb_parts)
 {
 	int	i;
@@ -35,6 +41,9 @@ void	free_rgb_parts(char **rgb_parts)
 	free(rgb_parts);
 }
 
+/**
+ * Validates RGB values are within valid range (0-255).
+ */
 bool	validate_rgb_values(int r, int g, int b)
 {
 	if (r < 0 || r > 255)
@@ -46,6 +55,9 @@ bool	validate_rgb_values(int r, int g, int b)
 	return (true);
 }
 
+/**
+ * Parses RGB string values to integers and validates them.
+ */
 bool	parse_color_values(char **rgb_parts, int *r, int *g, int *b)
 {
 	*r = ft_atoi(rgb_parts[0]);
@@ -54,6 +66,9 @@ bool	parse_color_values(char **rgb_parts, int *r, int *g, int *b)
 	return (validate_rgb_values(*r, *g, *b));
 }
 
+/**
+ * Parses color configuration line and extracts RGB values.
+ */
 bool	parse_color_p(char *line, int *r, int *g, int *b)
 {
 	char	**rgb_parts;

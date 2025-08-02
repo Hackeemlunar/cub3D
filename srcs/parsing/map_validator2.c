@@ -12,6 +12,9 @@
 
 #include "parser_utils.h"
 
+/**
+ * Checks if the first and last characters of a row are valid side boundaries.
+ */
 bool	check_side_columns(t_config *config, int i)
 {
 	char	first;
@@ -30,6 +33,9 @@ bool	check_side_columns(t_config *config, int i)
 	return (true);
 }
 
+/**
+ * Validates all side columns in the map are properly bounded.
+ */
 bool	are_side_columns_valid(t_config *config)
 {
 	int	i;
@@ -44,6 +50,9 @@ bool	are_side_columns_valid(t_config *config)
 	return (true);
 }
 
+/**
+ * Calculates and sets the maximum width of the map.
+ */
 void	set_map_dimensions(t_config *config)
 {
 	int	i;
@@ -62,6 +71,9 @@ void	set_map_dimensions(t_config *config)
 	config->map.cols = max_width;
 }
 
+/**
+ * Validates that the map is properly closed by walls.
+ */
 bool	is_map_closed(t_config *config)
 {
 	set_map_dimensions(config);

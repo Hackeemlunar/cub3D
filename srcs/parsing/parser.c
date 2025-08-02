@@ -12,6 +12,9 @@
 
 #include "parser_utils.h"
 
+/**
+ * Validates the input file has correct format and extension.
+ */
 bool	validate_input_file(char *filename)
 {
 	if (!validate_file_extension(filename))
@@ -22,6 +25,9 @@ bool	validate_input_file(char *filename)
 	return (true);
 }
 
+/**
+ * Main parsing function that processes a .cub file and returns configuration.
+ */
 t_config	*parse_cub_file(char *filename, t_arena *arena)
 {
 	t_list		*lines;

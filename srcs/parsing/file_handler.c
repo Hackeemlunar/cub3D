@@ -12,6 +12,9 @@
 
 #include "parser_utils.h"
 
+/**
+ * Validates that filename has correct .cub extension.
+ */
 bool	validate_file_extension(char *filename)
 {
 	int	len;
@@ -24,6 +27,9 @@ bool	validate_file_extension(char *filename)
 	return (true);
 }
 
+/**
+ * Checks if file can be opened for reading.
+ */
 bool	can_open_file(char *filename)
 {
 	int	fd;
@@ -35,6 +41,9 @@ bool	can_open_file(char *filename)
 	return (true);
 }
 
+/**
+ * Reads entire file content into a linked list of strings.
+ */
 t_list	*read_file_to_list(char *filename)
 {
 	t_list	*head;
@@ -55,6 +64,9 @@ t_list	*read_file_to_list(char *filename)
 	return (read_remaining_lines(fd, current, head));
 }
 
+/**
+ * Helper function to read remaining lines after the first line.
+ */
 t_list	*read_remaining_lines(int fd, t_list *current, t_list *head)
 {
 	char	*line;
@@ -75,6 +87,9 @@ t_list	*read_remaining_lines(int fd, t_list *current, t_list *head)
 	return (close(fd), head);
 }
 
+/**
+ * Verifies that texture file exists and can be opened.
+ */
 bool	verify_texture_file(char *path)
 {
 	int	fd;

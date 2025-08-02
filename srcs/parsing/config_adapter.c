@@ -15,9 +15,8 @@
 
 void	set_player_info(t_config *config, t_map *map);
 
-/*
- * if src is non‑NULL, allocate dst via arena and copy src into it.
- * Returns false on allocation failure, true otherwise.
+/**
+ * Allocates and copies a texture path string using arena allocation.
  */
 static bool	copy_one_texture(const char *src, char **dst, t_arena *arena)
 {
@@ -33,8 +32,8 @@ static bool	copy_one_texture(const char *src, char **dst, t_arena *arena)
 	return (true);
 }
 
-/*
- * copy each of the 4 texture paths, using the helper.
+/**
+ * Copies all four texture paths from config to map structure.
  */
 bool	copy_texture_paths(t_config *config, t_map *map, t_arena *arena)
 {
