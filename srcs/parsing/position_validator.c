@@ -12,6 +12,9 @@
 
 #include "parser_utils.h"
 
+/**
+ * Gets the character at a specific position, returns space if out of bounds.
+ */
 char	get_cell_at_position(t_config *config, int i, int j)
 {
 	int	row_len;
@@ -24,6 +27,9 @@ char	get_cell_at_position(t_config *config, int i, int j)
 	return (config->map.board[i][j]);
 }
 
+/**
+ * Checks all four adjacent cells of a position for validity.
+ */
 bool	check_adjacent_cells(t_config *config, int i, int j)
 {
 	char	up;
@@ -44,6 +50,9 @@ bool	check_adjacent_cells(t_config *config, int i, int j)
 	return (true);
 }
 
+/**
+ * Validates a single position is properly enclosed if walkable.
+ */
 bool	is_position_valid(t_config *config, int i, int j)
 {
 	char	current;
@@ -54,6 +63,9 @@ bool	is_position_valid(t_config *config, int i, int j)
 	return (check_adjacent_cells(config, i, j));
 }
 
+/**
+ * Validates all internal positions in the map are properly enclosed.
+ */
 bool	are_internal_positions_valid(t_config *config)
 {
 	int	i;

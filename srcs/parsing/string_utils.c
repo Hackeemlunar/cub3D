@@ -12,6 +12,9 @@
 
 #include "parser_utils.h"
 
+/**
+ * Prints error message to stderr with "Error" prefix.
+ */
 void	print_error(char *message)
 {
 	ft_putstr_fd("Error\n", 2);
@@ -19,6 +22,9 @@ void	print_error(char *message)
 	ft_putchar_fd('\n', 2);
 }
 
+/**
+ * Skips whitespace characters and returns pointer to first non-whitespace.
+ */
 char	*skip_whitespace(char *str)
 {
 	while (*str && (*str == ' ' || *str == '\t'))
@@ -26,6 +32,9 @@ char	*skip_whitespace(char *str)
 	return (str);
 }
 
+/**
+ * Removes trailing newline character from string if present.
+ */
 char	*trim_newline(char *str)
 {
 	int	len;
@@ -38,6 +47,9 @@ char	*trim_newline(char *str)
 	return (str);
 }
 
+/**
+ * Prepares content by skipping offset characters and trimming whitespace.
+ */
 char	*prepare_content(char *line, int offset)
 {
 	char	*content;
@@ -47,6 +59,9 @@ char	*prepare_content(char *line, int offset)
 	return (content);
 }
 
+/**
+ * Checks if line contains only whitespace or is empty.
+ */
 bool	is_empty_line(char *line)
 {
 	char	*trimmed;

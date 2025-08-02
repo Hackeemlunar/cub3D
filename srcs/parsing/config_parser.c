@@ -22,6 +22,9 @@ void	set_player_info(t_config *config, t_map *map)
 	map->player_y = config->map.player_pos_y;
 }
 
+/**
+ * Processes a single configuration line and handles element parsing.
+ */
 bool	process_config_line(t_list *current, t_config *config,
 		t_arena *arena, t_list **map_start)
 {
@@ -51,6 +54,9 @@ bool	process_config_line(t_list *current, t_config *config,
 	return (true);
 }
 
+/**
+ * Parses all configuration elements before the map section.
+ */
 bool	parse_config_elements(t_list *lines, t_config *config,
 		t_arena *arena, t_list **map_start)
 {
@@ -77,6 +83,9 @@ bool	parse_config_elements(t_list *lines, t_config *config,
 	return (true);
 }
 
+/**
+ * Initializes a new configuration structure with default values.
+ */
 t_config	*init_config(t_arena *arena)
 {
 	t_config	*config;

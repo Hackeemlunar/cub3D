@@ -12,6 +12,9 @@
 
 #include "parser_utils.h"
 
+/**
+ * Allocates memory for texture path and copies the path string.
+ */
 bool	allocate_texture_path(char *path, char **texture_path, t_arena *arena)
 {
 	*texture_path = arena_alloc(arena, ft_strlen(path) + 1);
@@ -21,6 +24,9 @@ bool	allocate_texture_path(char *path, char **texture_path, t_arena *arena)
 	return (true);
 }
 
+/**
+ * Parses and validates a texture line from configuration file.
+ */
 bool	parse_texture(char *line, char **texture_path, t_arena *arena)
 {
 	char	*path;
@@ -33,6 +39,9 @@ bool	parse_texture(char *line, char **texture_path, t_arena *arena)
 	return (allocate_texture_path(path, texture_path, arena));
 }
 
+/**
+ * Handles parsing of north wall texture configuration.
+ */
 bool	handle_north_texture(char *content, t_config *config, t_arena *arena)
 {
 	if (config->parsed_no)
@@ -41,6 +50,9 @@ bool	handle_north_texture(char *content, t_config *config, t_arena *arena)
 	return (config->parsed_no);
 }
 
+/**
+ * Handles parsing of south wall texture configuration.
+ */
 bool	handle_south_texture(char *content, t_config *config, t_arena *arena)
 {
 	if (config->parsed_so)
@@ -49,6 +61,9 @@ bool	handle_south_texture(char *content, t_config *config, t_arena *arena)
 	return (config->parsed_so);
 }
 
+/**
+ * Handles parsing of west wall texture configuration.
+ */
 bool	handle_west_texture(char *content, t_config *config, t_arena *arena)
 {
 	if (config->parsed_we)

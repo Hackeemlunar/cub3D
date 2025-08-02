@@ -12,6 +12,9 @@
 
 #include "parser_utils.h"
 
+/**
+ * Validates the overall structure of the parsed map.
+ */
 bool	validate_map_structure(t_config *config)
 {
 	if (!find_player_position_p(config))
@@ -27,6 +30,9 @@ bool	validate_map_structure(t_config *config)
 	return (true);
 }
 
+/**
+ * Main function to parse map section from linked list.
+ */
 bool	parse_map(t_list *map_start, t_config *config, t_arena *arena)
 {
 	int	row_count;
@@ -44,6 +50,9 @@ bool	parse_map(t_list *map_start, t_config *config, t_arena *arena)
 	return (validate_map_structure(config));
 }
 
+/**
+ * Builds a linked list of file lines after validation.
+ */
 t_list	*build_map_line_list(char *filename)
 {
 	if (!validate_file_extension(filename))
@@ -53,6 +62,9 @@ t_list	*build_map_line_list(char *filename)
 	return (read_file_to_list(filename));
 }
 
+/**
+ * Checks if line contains direction/color elements and parses them.
+ */
 bool	check_direction(char *trimmed, t_list *current, t_config *config,
 		t_arena *arena)
 {

@@ -12,6 +12,9 @@
 
 #include "parser_utils.h"
 
+/**
+ * Handles parsing of east wall texture configuration.
+ */
 bool	handle_east_texture(char *content, t_config *config, t_arena *arena)
 {
 	if (config->parsed_ea)
@@ -20,6 +23,9 @@ bool	handle_east_texture(char *content, t_config *config, t_arena *arena)
 	return (config->parsed_ea);
 }
 
+/**
+ * Handles parsing of floor color configuration.
+ */
 bool	handle_floor_color(char *content, t_config *config)
 {
 	if (config->parsed_f)
@@ -29,6 +35,9 @@ bool	handle_floor_color(char *content, t_config *config)
 	return (config->parsed_f);
 }
 
+/**
+ * Handles parsing of ceiling color configuration.
+ */
 bool	handle_ceiling_color(char *content, t_config *config)
 {
 	if (config->parsed_c)
@@ -38,6 +47,9 @@ bool	handle_ceiling_color(char *content, t_config *config)
 	return (config->parsed_c);
 }
 
+/**
+ * Parses configuration elements based on line content.
+ */
 bool	parse_element(char *line, t_config *config, t_arena *arn)
 {
 	char	*trimmed;
@@ -60,6 +72,9 @@ bool	parse_element(char *line, t_config *config, t_arena *arn)
 	return (false);
 }
 
+/**
+ * Validates that all required configuration elements are present.
+ */
 bool	validate_required_elements(t_config *config)
 {
 	if (!config->parsed_no || !config->parsed_so)

@@ -12,17 +12,26 @@
 
 #include "parser_utils.h"
 
+/**
+ * Checks if character is valid for map content.
+ */
 bool	is_valid_map_char(char c)
 {
 	return (c == '0' || c == '1' || c == 'N' || c == 'S' || c == 'E'
 		|| c == 'W' || c == ' ');
 }
 
+/**
+ * Checks if character represents a walkable map position.
+ */
 bool	is_walkable(char c)
 {
 	return (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
 
+/**
+ * Validates all characters in a map line are allowed.
+ */
 bool	validate_map_line(char *line)
 {
 	int	i;
@@ -37,6 +46,9 @@ bool	validate_map_line(char *line)
 	return (true);
 }
 
+/**
+ * Validates that a row contains only walls and spaces.
+ */
 bool	is_row_valid(char *row)
 {
 	int	j;
@@ -51,6 +63,9 @@ bool	is_row_valid(char *row)
 	return (true);
 }
 
+/**
+ * Checks if character is valid for side columns (walls or spaces).
+ */
 bool	check_side_column_char(char c)
 {
 	return (c == '1' || c == ' ');

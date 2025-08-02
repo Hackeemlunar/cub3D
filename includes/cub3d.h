@@ -14,7 +14,7 @@
 # define CUB3D_H
 
 /* ========== INCLUDES ========== */
-# include "minilibx_opengl_20191021/mlx.h"
+# include "minilibx-linux/mlx.h"
 # include "libft/arena.h"
 # include "libft/libft.h"
 # include <stdio.h>

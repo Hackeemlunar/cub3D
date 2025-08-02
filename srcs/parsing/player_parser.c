@@ -12,11 +12,17 @@
 
 #include "parser_utils.h"
 
+/**
+ * Checks if character represents a player direction.
+ */
 bool	is_player_char(char c)
 {
 	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
 
+/**
+ * Records the player position and direction in the config.
+ */
 void	record_player_position(t_config *config, int i, int j)
 {
 	config->map.player_pos_x = j;
@@ -24,6 +30,9 @@ void	record_player_position(t_config *config, int i, int j)
 	config->map.player_dir = config->map.board[i][j];
 }
 
+/**
+ * Searches for player characters in a single row and counts them.
+ */
 bool	find_player_position_row(t_config *config, int i, int *count)
 {
 	int	j;
@@ -41,6 +50,9 @@ bool	find_player_position_row(t_config *config, int i, int *count)
 	return (true);
 }
 
+/**
+ * Finds player position in the map and validates there's exactly one.
+ */
 bool	find_player_position_p(t_config *config)
 {
 	int	i;
